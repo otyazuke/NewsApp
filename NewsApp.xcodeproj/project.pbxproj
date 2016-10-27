@@ -20,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		3EC4438FE91E993D4182324A /* Pods_NewsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		863B71031DC1E60500011177 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../Library/Developer/Xcode/DerivedData/NewsApp-abihxjayqjwhuecvfyjwdsnskteo/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		866EB50D1DC099C500CDB515 /* PagingMenuController_1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingMenuController_1.swift; sourceTree = "<group>"; };
 		866EB50F1DC099D000CDB515 /* PagingMenuController_2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingMenuController_2.swift; sourceTree = "<group>"; };
 		866EB5111DC099D900CDB515 /* PagingMenuController_3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingMenuController_3.swift; sourceTree = "<group>"; };
@@ -49,6 +50,7 @@
 		7D9C055B7F9E7373F06445C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				863B71031DC1E60500011177 /* Alamofire.framework */,
 				3EC4438FE91E993D4182324A /* Pods_NewsApp.framework */,
 			);
 			name = Frameworks;

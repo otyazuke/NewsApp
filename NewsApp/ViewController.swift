@@ -8,6 +8,8 @@
 
 import UIKit
 import PagingMenuController
+import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController {
 
@@ -21,7 +23,6 @@ class ViewController: UIViewController {
         addChildViewController(pagingMenuController)
         view.addSubview(pagingMenuController.view)
         pagingMenuController.didMove(toParentViewController: self)
-        
     }
 
     override func didReceiveMemoryWarning() {

@@ -6,6 +6,10 @@ target 'NewsApp' do
   use_frameworks!
 
   # Pods for NewsApp
+  platform :ios, '9.0'
   pod 'PagingMenuController'
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  
 
 end

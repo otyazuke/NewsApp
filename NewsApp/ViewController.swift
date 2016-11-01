@@ -23,6 +23,14 @@ class ViewController: UIViewController {
         addChildViewController(pagingMenuController)
         view.addSubview(pagingMenuController.view)
         pagingMenuController.didMove(toParentViewController: self)
+        
+
+        Alamofire.request("http://qiita-stock.info/api.json").responseJSON {
+            response in
+            if response.result.isSuccess {
+                print(response)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

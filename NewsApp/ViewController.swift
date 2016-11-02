@@ -10,12 +10,16 @@ import UIKit
 import PagingMenuController
 import Alamofire
 import SwiftyJSON
+import RealmSwift
 
 class ViewController: UIViewController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.title = "Dev News"
         
         let options = PagingMenuOptions()   //オプションをインスタンス化
         
@@ -24,13 +28,62 @@ class ViewController: UIViewController {
         view.addSubview(pagingMenuController.view)
         pagingMenuController.didMove(toParentViewController: self)
         
-
-        Alamofire.request("http://qiita-stock.info/api.json").responseJSON {
-            response in
-            if response.result.isSuccess {
-                print(response)
+        
+        var feeds: [Dictionary<String, String>] = [
+            [
+                "link": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://menthas.com/top/rss",
+                "title": "top"
+            ],
+            [
+                "link": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://menthas.com/ruby/rss",
+                "title": "ruby"
+            ],
+            [
+                "link": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://menthas.com/ios/rss",
+                "title": "ios"
+            ],
+            [
+                "link": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://menthas.com/infrastructure/rss",
+                "title": "infrastructure"
+            ]
+        ]
+        
+        
+        Alamofire.request("https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://menthas.com/ios/rss").responseJSON { response in
+            guard let object = response.result.value else {
+                return
+            }
+            let json = JSON(object)
+            let entries = json["responseData"]["feed"]["entries"]
+            
+            let uiRealm = try! Realm()
+            try! uiRealm.write {
+                entries.forEach({ (_, entry) in
+                    print("+++++++++")
+                    print(entry["title"].string)
+                    print("+++++++++")
+                })
             }
         }
+        
+        
+//        Alamofire.request(.GET, fetchFrom).responseObject("responseData") { (response: Alamofire.Response<FeedResponse, NSError>) in
+//            
+//            guard let entries = response.result.value?.feed?.entries else {
+//                return
+//            }
+//            
+//            print(entries)
+//            print("Our default realm is located at \(RLMRealm.defaultRealm().path)")
+//            
+//            //この後、取得した記事をRealmに保存
+//            
+//        }
+        
+        
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

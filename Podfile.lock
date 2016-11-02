@@ -1,18 +1,26 @@
 PODS:
   - Alamofire (4.0.1)
   - PagingMenuController (2.0.0)
+  - Realm (2.0.3):
+    - Realm/Headers (= 2.0.3)
+  - Realm/Headers (2.0.3)
+  - RealmSwift (2.0.3):
+    - Realm (= 2.0.3)
   - SwiftyJSON (3.1.1)
 
 DEPENDENCIES:
   - Alamofire
   - PagingMenuController
+  - RealmSwift
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   PagingMenuController: 60602bfb5421d6536c1e3097baeed601dec1d85b
+  Realm: 5f008bfe3c8c47142eddfc30b8c1584cde22db24
+  RealmSwift: 5afb451f65b682242f272dbb52d5c6f6e343c980
   SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-PODFILE CHECKSUM: 865a82656a88f4488121ee7539e738ead77f7cba
+PODFILE CHECKSUM: 3932bccf9d4a30c54d1a2645fe5d83691aaa2116
 
 COCOAPODS: 1.1.1

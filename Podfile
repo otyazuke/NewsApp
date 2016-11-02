@@ -10,6 +10,7 @@ target 'NewsApp' do
   pod 'PagingMenuController'
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'RealmSwift'
   
 
 end

@@ -11,6 +11,6 @@ target 'NewsApp' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'RealmSwift'
-  
+  pod 'ObjectMapper'
 
 end

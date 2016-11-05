@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		866B09971DC9E1BA00CB69F8 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866B09951DC9E1BA00CB69F8 /* Realm.framework */; };
 		866B09981DC9E1BA00CB69F8 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866B09961DC9E1BA00CB69F8 /* RealmSwift.framework */; };
+		866B099B1DCA397700CB69F8 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866B09991DCA397700CB69F8 /* TableViewCell.swift */; };
+		866B099C1DCA397700CB69F8 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 866B099A1DCA397700CB69F8 /* TableViewCell.xib */; };
+		866B09A01DCB09A600CB69F8 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866B099F1DCB09A600CB69F8 /* TableViewController.swift */; };
+		866B09A21DCB237000CB69F8 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866B09A11DCB237000CB69F8 /* Entry.swift */; };
 		866EB50E1DC099C500CDB515 /* PagingMenuController_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866EB50D1DC099C500CDB515 /* PagingMenuController_1.swift */; };
 		866EB5101DC099D000CDB515 /* PagingMenuController_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866EB50F1DC099D000CDB515 /* PagingMenuController_2.swift */; };
 		866EB5121DC099D900CDB515 /* PagingMenuController_3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866EB5111DC099D900CDB515 /* PagingMenuController_3.swift */; };
@@ -25,6 +29,10 @@
 		863B71031DC1E60500011177 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../Library/Developer/Xcode/DerivedData/NewsApp-abihxjayqjwhuecvfyjwdsnskteo/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		866B09951DC9E1BA00CB69F8 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "Pods/../build/Debug-iphoneos/Realm/Realm.framework"; sourceTree = "<group>"; };
 		866B09961DC9E1BA00CB69F8 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "Pods/../build/Debug-iphoneos/RealmSwift/RealmSwift.framework"; sourceTree = "<group>"; };
+		866B09991DCA397700CB69F8 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		866B099A1DCA397700CB69F8 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		866B099F1DCB09A600CB69F8 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		866B09A11DCB237000CB69F8 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		866EB50D1DC099C500CDB515 /* PagingMenuController_1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingMenuController_1.swift; sourceTree = "<group>"; };
 		866EB50F1DC099D000CDB515 /* PagingMenuController_2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingMenuController_2.swift; sourceTree = "<group>"; };
 		866EB5111DC099D900CDB515 /* PagingMenuController_3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingMenuController_3.swift; sourceTree = "<group>"; };
@@ -94,6 +102,10 @@
 				866EB50D1DC099C500CDB515 /* PagingMenuController_1.swift */,
 				866EB50F1DC099D000CDB515 /* PagingMenuController_2.swift */,
 				866EB5111DC099D900CDB515 /* PagingMenuController_3.swift */,
+				866B099F1DCB09A600CB69F8 /* TableViewController.swift */,
+				866B09991DCA397700CB69F8 /* TableViewCell.swift */,
+				866B099A1DCA397700CB69F8 /* TableViewCell.xib */,
+				866B09A11DCB237000CB69F8 /* Entry.swift */,
 			);
 			path = NewsApp;
 			sourceTree = "<group>";
@@ -170,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86DF4EB31DC097B100059F88 /* LaunchScreen.storyboard in Resources */,
+				866B099C1DCA397700CB69F8 /* TableViewCell.xib in Resources */,
 				86DF4EB01DC097B100059F88 /* Assets.xcassets in Resources */,
 				86DF4EAE1DC097B100059F88 /* Main.storyboard in Resources */,
 			);
@@ -230,9 +243,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				866B09A21DCB237000CB69F8 /* Entry.swift in Sources */,
 				866EB50E1DC099C500CDB515 /* PagingMenuController_1.swift in Sources */,
+				866B09A01DCB09A600CB69F8 /* TableViewController.swift in Sources */,
 				86DF4EAB1DC097B100059F88 /* ViewController.swift in Sources */,
 				86DF4EA91DC097B100059F88 /* AppDelegate.swift in Sources */,
+				866B099B1DCA397700CB69F8 /* TableViewCell.swift in Sources */,
 				866EB5101DC099D000CDB515 /* PagingMenuController_2.swift in Sources */,
 				866EB5121DC099D900CDB515 /* PagingMenuController_3.swift in Sources */,
 			);

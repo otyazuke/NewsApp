@@ -20,6 +20,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         self.title = "Dev News"
+
         
         let options = PagingMenuOptions()   //オプションをインスタンス化
         
@@ -49,38 +50,6 @@ class ViewController: UIViewController {
         ]
         
         
-        Alamofire.request("https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://menthas.com/ios/rss").responseJSON { response in
-            guard let object = response.result.value else {
-                return
-            }
-            let json = JSON(object)
-            let entries = json["responseData"]["feed"]["entries"]
-            
-            let uiRealm = try! Realm()
-            try! uiRealm.write {
-                entries.forEach({ (_, entry) in
-                    print("+++++++++")
-                    print(entry["title"].string)
-                    print("+++++++++")
-                })
-            }
-        }
-        
-        
-//        Alamofire.request(.GET, fetchFrom).responseObject("responseData") { (response: Alamofire.Response<FeedResponse, NSError>) in
-//            
-//            guard let entries = response.result.value?.feed?.entries else {
-//                return
-//            }
-//            
-//            print(entries)
-//            print("Our default realm is located at \(RLMRealm.defaultRealm().path)")
-//            
-//            //この後、取得した記事をRealmに保存
-//            
-//        }
-        
-        
         
         
         
@@ -98,10 +67,10 @@ class ViewController: UIViewController {
 struct PagingMenuOptions: PagingMenuControllerCustomizable {
     var componentType: ComponentType {
         let page_1 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PagingMenuController_1") as! PagingMenuController_1
-        
         let page_2 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PagingMenuController_2") as! PagingMenuController_2
         
         let page_3 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PagingMenuController_3") as! PagingMenuController_3
+        
         
         let viewControllers = [page_1, page_2, page_3]
         
@@ -130,3 +99,16 @@ struct PagingMenuOptions: PagingMenuControllerCustomizable {
         }
     }
 }
+
+
+
+/*class MyCustomViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    override func `self`() -> Self {
+        let tableView = UITableView(frame: self.view.frame, style: UITableViewStyle.plain)
+        self.view.addSubview(tableView)
+        
+        tableView.delegate = self
+        tableview.dataSource = self
+    }
+
+}*/

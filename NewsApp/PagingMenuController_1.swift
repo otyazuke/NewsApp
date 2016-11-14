@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 import RealmSwift
 import ObjectMapper
+import SafariServices
 
 class PagingMenuController_1: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
@@ -83,7 +84,13 @@ class PagingMenuController_1: UIViewController, UITableViewDelegate, UITableView
         return cell.bounds.height
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let entry = lists[indexPath.row] as Entry
+        let entry = lists[indexPath.row] as Entry
+        let svc = SFSafariViewController(url: NSURL(string: entry.link)! as URL)
+        self.present(svc, animated: true, completion: nil)
+//        reloadRowsAtIndexPath(indexPath)
+    }
     
     func updateTableView() {
         let predicate = NSPredicate(format: "category == %@", "top")

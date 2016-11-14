@@ -21,11 +21,11 @@ class PagingMenuController_1: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
         
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "Cell")
-        tableView.delegate = self
-        tableView.dataSource = self
 
         Alamofire.request("https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://menthas.com/top/rss").responseJSON { response in
             guard let object = response.result.value else {
@@ -35,7 +35,6 @@ class PagingMenuController_1: UIViewController, UITableViewDelegate, UITableView
             let entries = json["responseData"]["feed"]["entries"]
             
 //            print(Realm.Configuration.defaultConfiguration.fileURL!)
-            
             
             try! uiRealm.write {
                 for (_, subJson) in entries {
@@ -61,11 +60,8 @@ class PagingMenuController_1: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let entries = entries {
-            print("+++++++++++")
-            print(entries)
-            print("+++++++++++")
-            return entries.count
+        if let listEntries = lists{
+            return listEntries.count
         }
         return 0
     }
@@ -73,10 +69,8 @@ class PagingMenuController_1: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! TableViewCell
-        
-        let entry = entries![indexPath.row]
-        //cell.textLabel?.text = entry["title"]
-        print(entry)
+        let entry = lists[indexPath.row] as Entry
+        cell.configure(entry: entry)
         return cell
     }
     
@@ -84,18 +78,18 @@ class PagingMenuController_1: UIViewController, UITableViewDelegate, UITableView
         return "セクションタイトル"
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! TableViewCell
+        return cell.bounds.height
+    }
+    
     
     
     func updateTableView() {
+        let predicate = NSPredicate(format: "category == %@", "top")
+        lists = uiRealm.objects(Entry).filter(predicate)
         
-//        do {
-//            self.entries = try Realm().objects(Entry.self).sorted(by: { (entry1, entry2) -> Bool in
-//                let res = entry1.publishedDate.compare(entry2.publishedDate)
-//                return (res == .orderedAscending || res == .orderedSame)
-//            })
-//        }catch {}
-        
-        tableView.reloadData()
+        self.tableView.reloadData()
     }
 
 }

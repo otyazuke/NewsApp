@@ -68,9 +68,7 @@ struct PagingMenuOptions: PagingMenuControllerCustomizable {
     var componentType: ComponentType {
         let page_1 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PagingMenuController_1") as! PagingMenuController_1
         let page_2 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PagingMenuController_2") as! PagingMenuController_2
-        
         let page_3 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PagingMenuController_3") as! PagingMenuController_3
-        
         
         let viewControllers = [page_1, page_2, page_3]
         
